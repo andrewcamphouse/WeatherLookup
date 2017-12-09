@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+      	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
+      	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+       <script src="scripts/weather.js"></script>
+       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			  // Load the Visualization API and the piechart package.
+			  google.load('visualization', '1.0', {'packages':['corechart']});
+		</script>
+  		<title>Weather</title>
+  	</head>
+	<body>
+		<div class="container-fluid">
+			
+	<p>Enter a city and pick a date below and then click submit to view hourly forecast for the specified city on the specified day.</p>
+
+			<form id="dateForm" class="form-horizontal" role="form">
+			    <div class="form-group">
+			    	<label for="city" class="col-sm-5 control-label">Enter a city</label>
+			    	<input type="text" id="cityText" class="form-control" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="datePicker" class="col-sm-5 control-label">Please pick a date</label>
+			        <div class="col-sm-6">
+						<div id="datePicker"></div>
+						<input type="hidden" id="selectedDate" name="selectedDate" required/>
+			        </div>
+			        					<div class="col text-center">
+						<button type="submit" id="getCityForecastBtn" class="btn btn-default">Submit</button>
+					</div>
+			    </div>
+			</form>
+			<p> This page allows you to look up past hourly forcasts for cities.</p>
+			<div id="chart_div"></div>
+			<hr/>
+			<div id="summary" class="lead"></div>
+			<hr/>
+			<h4>Detail</h4>
+			<table id="dataTable" class="table">
+				<tr>
+
+					<th>Time</th>
+					<th>Temperature</th>
+					<th>Conditions</th>
+					
+				</tr>
+				
+			</table>
+
+		</div>
+	</body>
+</html>
