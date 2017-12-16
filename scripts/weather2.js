@@ -8,6 +8,10 @@ $(document).ready(function(){
 		success : function(parsed_json){
 			console.log("success");
 
+			var promptString = "<p>Showing forcast for: "+city+", "+state+"</p>";
+			$("#prompt").html(promptString);
+
+
 			var currentdate = new Date();
 			var month = currentdate.getMonth() + 1;
 			var monthDay = currentdate.getDate() + 1;
@@ -52,6 +56,7 @@ $(document).ready(function(){
 				var summaryString = '<p>Average Temperature: '+avgTemp.toFixed(2)+'</p>';
 				summaryString = summaryString+'<p>High Temperature: '+highTemp+'</p>';
 				summaryString = summaryString+'<p>Low Temperature: '+lowTemp+'</p>';
+
 				$("#summary").html(summaryString);
 
 				var data = google.visualization.arrayToDataTable(dataArray);
